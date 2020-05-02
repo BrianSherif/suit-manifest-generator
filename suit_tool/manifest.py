@@ -740,6 +740,7 @@ class SUITWrapper(SUITManifestDict):
         # 'text': ('text', 13, SUITBWrapField(SUITSequence)),
     })
     severable_fields = {'deres', 'fetch', 'install'}  # , 'text'}
+
     digest_algorithms = {
         'sha224': hashes.SHA224,
         'sha256': hashes.SHA256,

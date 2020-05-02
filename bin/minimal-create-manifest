@@ -18,15 +18,17 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
-import sys
 import os
+import sys
+
 import cbor
-suittoolPath = os.path.join(os.path.dirname(os.path.realpath(__file__)),'..')
-sys.path.insert(0,suittoolPath)
+
+suittoolPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
+sys.path.insert(0, suittoolPath)
 from suit_tool.compile import compile_manifest
 
 ex0 = {
-    "components" : [
+    "components": [
         {
             "install-id" : ["00"],
             "bootable" : True,

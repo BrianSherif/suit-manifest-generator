@@ -17,12 +17,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ----------------------------------------------------------------------------
-import cbor
-import json
 import itertools
+import json
 import textwrap
 
+import cbor
+
 from suit_tool.manifest import SUITWrapper
+
 
 def main(options):
     # Read the manifest wrapper
@@ -30,7 +32,7 @@ def main(options):
     # print(decoded_cbor_wrapper)
     wrapper = SUITWrapper().from_suit(decoded_cbor_wrapper)
     if options.json:
-        print (json.dumps(wrapper.to_json(),indent=2))
+        return json.dumps(wrapper.to_json(), indent=None)
     else:
         print ('\n'.join(itertools.chain.from_iterable(
             [textwrap.wrap(t, 70) for t in wrapper.to_debug('').split('\n')]
