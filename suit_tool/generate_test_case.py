@@ -21,12 +21,7 @@ class Emptyopts:
         self.components = []
 
 
-def generator():
-    for num in range(8):
-        nm = compile_manifest(Emptyopts(), open_json(num))
-        with open('../examples/testcases/testcase' + str(num) + '.cbor', 'wb') as fd:
-            fd.write(cbor.dumps(nm.to_suit(), sort_keys=True))
-
-
-if __name__ == "__main__":
-    sys.exit(generator())
+def test_generator(case_num):
+    nm = compile_manifest(Emptyopts(), open_json(case_num))
+    with open('../examples/testcases/testcase' + str(case_num) + '.cbor', 'wb') as fd:
+        fd.write(cbor.dumps(nm.to_suit(), sort_keys=True))

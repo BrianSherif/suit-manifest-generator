@@ -5,6 +5,8 @@ import sys
 import cbor
 import pytest
 
+from suit_tool.generate_test_case import test_generator
+
 suittoolPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
 sys.path.insert(0, suittoolPath)
 from suit_tool.compile import compile_manifest
@@ -27,19 +29,20 @@ def manifest_loader(example):
         return data
 
 
-@pytest.mark.parametrize('input_json, expected_output',
+@pytest.mark.parametrize('input_json, expected_output, test_num',
                          [
-                             (example_loader(0), manifest_loader(0)),
-                             (example_loader(1), manifest_loader(1)),
-                             (example_loader(2), manifest_loader(2)),
-                             (example_loader(3), manifest_loader(3)),
-                             (example_loader(4), manifest_loader(4)),
-                             (example_loader(5), manifest_loader(5)),
-                             (example_loader(6), manifest_loader(6)),
-                             (example_loader(7), manifest_loader(7))
+                             (example_loader(0), manifest_loader(0), 0),
+                             (example_loader(1), manifest_loader(1), 1),
+                             (example_loader(2), manifest_loader(2), 2),
+                             (example_loader(3), manifest_loader(3), 3),
+                             (example_loader(4), manifest_loader(4), 4),
+                             (example_loader(5), manifest_loader(5), 5),
+                             (example_loader(6), manifest_loader(6), 6),
+                             (example_loader(7), manifest_loader(7), 7)
                          ]
                          )
-def test_compile_manifest(input_json, expected_output):
+def test_compile_manifest(input_json, expected_output, test_num):
+    test_generator(test_num)
     nm = compile_manifest(Emptyopts(), input_json)
     with open('../examples/testcases/answer.cbor', 'wb') as fd:
         fd.write(cbor.dumps(nm.to_suit(), sort_keys=True))
