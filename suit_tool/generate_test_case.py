@@ -3,11 +3,8 @@ import json
 import os
 import sys
 
-import cbor
-
 suittoolPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
 sys.path.insert(0, suittoolPath)
-from suit_tool.compile import compile_manifest
 
 
 def open_json(example):
@@ -21,7 +18,7 @@ class Emptyopts:
         self.components = []
 
 
-def test_generator(case_num):
-    nm = compile_manifest(Emptyopts(), open_json(case_num))
-    with open('../examples/testcases/testcase' + str(case_num) + '.cbor', 'wb') as fd:
-        fd.write(cbor.dumps(nm.to_suit(), sort_keys=True))
+def test_generator():
+    for num in range(8):
+        os.system("suit-tool create -i ../examples/example" + str(num) + ".json -o ../examples/Oracle/oracle" + str(
+            num) + ".json -f json")

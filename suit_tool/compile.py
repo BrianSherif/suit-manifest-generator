@@ -19,22 +19,13 @@
 # ----------------------------------------------------------------------------
 import binascii
 import copy
-import collections
-import json
-import cbor
-import sys
-import textwrap
-import itertools
-
 import logging
 
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
 
-
 from suit_tool.manifest import SUITComponentId, SUITCommon, SUITSequence, \
-                     suitCommonInfo, SUITCommand, SUITManifest, \
-                     SUITWrapper, SUITTryEach, SUITBWrapField
+    SUITCommand, SUITWrapper, SUITTryEach
 
 LOG = logging.getLogger(__name__)
 
@@ -282,7 +273,7 @@ def compile_manifest(options, m):
                 # )
     #TODO: Text
     common = SUITCommon().from_json({
-        'components': [id.to_json() for id in ids],
+        'components': sorted([id.to_json() for id in ids]),
         'common-sequence': CommonSeq.to_json(),
     })
 

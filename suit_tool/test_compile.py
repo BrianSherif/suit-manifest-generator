@@ -2,10 +2,7 @@ import json
 import os
 import sys
 
-import cbor
 import pytest
-
-from suit_tool.generate_test_case import test_generator
 
 suittoolPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
 sys.path.insert(0, suittoolPath)
@@ -25,9 +22,8 @@ def example_loader(example):
 
 
 def manifest_loader(example):
-    test_generator(example)
-    with open('../examples/testcases/testcase' + str(example) + '.cbor', 'rb') as fp:
-        data = cbor.load(fp)
+    with open('../examples/Oracle/oracle' + str(example) + '.json', 'rb') as fp:
+        data = json.load(fp)
         return data
 
 
@@ -43,11 +39,10 @@ def manifest_loader(example):
 ])
 def test_compile_manifest(input_json, expected_output, test_num):
     nm = compile_manifest(Emptyopts(), input_json)
-    with open('../examples/testcases/answer.cbor', 'wb') as fd:
-        cbor.dump(nm.to_suit(), fd)
-    with open('../examples/testcases/answer.cbor', 'rb') as fp:
-        data = cbor.load(fp)
-    # print(data)
+    with open('../examples/answer.json', 'w') as fd:
+        json.dump(nm.to_json(), fd)
+    with open('../examples/answer.json', 'r') as fp:
+        data = json.load(fp)
     assert data == expected_output
-    os.remove('../examples/testcases/answer.cbor')
-    os.remove('../examples/testcases/testcase' + str(test_num) + '.cbor')
+    # os.remove('../examples/answer.cbor')
+    # os.remove('../examples/testcases/testcase' + str(test_num) + '.cbor')

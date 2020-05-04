@@ -18,6 +18,7 @@
 # limitations under the License.
 # ----------------------------------------------------------------------------
 
+import json
 import os
 import sys
 
@@ -27,26 +28,13 @@ suittoolPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
 sys.path.insert(0, suittoolPath)
 from suit_tool.compile import compile_manifest
 
-ex0 = {
-    "components": [
-        {
-            "install-id" : ["00"],
-            "bootable" : True,
-            "install-digest": {
-                "algorithm-id": "sha256",
-                "digest-bytes": "00112233445566778899aabbccddeeff0123456789abcdeffedcba9876543210"
-            },
-            "vendor-id" : "fa6b4a53-d5ad-5fdf-be9d-e663e4d41ffe",
-            "class-id" : "1492af14-2569-5e48-bf42-9b2d51f2ab45",
-            "install-size" : 34768
-        }
-    ],
-    "manifest-version": 1,
-    "manifest-sequence-number": 1
-}
+with open('../examples/example4.json') as json_file:
+    ex0 = json.load(json_file)
+
 class Emptyopts:
     def __init__(self):
         self.components = []
+        self.format = 'suit-debug'
     
 
 def main():
