@@ -1,0 +1,112 @@
+{
+  /
+  manifest
+  /
+  3: h
+  'a501010203035899a202448181410004588f8814a20150fa6
+  b4a53d5ad5fdfbe9de663e4d41ffe02501492af1425695e48bf429b2d51f2ab450f825
+  82e8405f614a2038202582000112233445566778899aabbccddeeff0123456789abcde
+  ffedcba98765432100e1987d058308405f614a203820258200123456789abcdeffedcb
+  a987654321000112233445566778899aabbccddeeff0e1a00012c2201f602f60958538
+  60f8258248405f613a115781c687474703a2f2f6578616d706c652e636f6d2f66696c6
+  5312e62696e58248405f613a115781c687474703a2f2f6578616d706c652e636f6d2f6
+  6696c65322e62696e15f603f60a438203f6
+  ' / {
+  /
+  manifest-version
+  /
+  1: 1,
+  /
+  manifest-sequence-number
+  /
+  2: 3,
+  /
+  common
+  /
+  3: h
+  'a202448181410004588f8814a20150fa6b4a53d5ad5fdfb
+  e9de663e4d41ffe02501492af1425695e48bf429b2d51f2ab450f82582e8405f614a20
+  38202582000112233445566778899aabbccddeeff0123456789abcdeffedcba9876543
+  2100e1987d058308405f614a203820258200123456789abcdeffedcba9876543210001
+  12233445566778899aabbccddeeff0e1a00012c2201f602f6
+  ' / {
+  /
+  components
+  /
+  2: h
+  '81814100'
+  / [
+  [
+    h
+    '00'
+  ]
+] /,
+/ common-sequence / 4: h'8814a20150fa6b4a53d5ad5fdfbe9de663
+e4d41ffe02501492af1425695e48bf429b2d51f2ab450f82582e8405f614a203820258
+2000112233445566778899aabbccddeeff0123456789abcdeffedcba98765432100e19
+87d058308405f614a203820258200123456789abcdeffedcba98765432100011223344
+5566778899aabbccddeeff0e1a00012c2201f602f6' / [
+/ directive-override-parameters / 20, {
+/ vendor-id /
+1: h'fa6b4a53d5ad5fdfbe9de663e4d41ffe' / fa6b4a53-d5ad-5fdf-
+be9d-e663e4d41ffe /,
+/ class-id / 2: h'1492af1425695e48bf429b2d51f2ab45'
+/ 1492af14-2569-5e48-bf42-9b2d51f2ab45 /,
+},
+/ directive-try-each / 15,[
+h'8405f614a2038202582000112233445566778899aabbccdd
+eeff0123456789abcdeffedcba98765432100e1987d0' / [
+/ condition-component-offset / 5, F6 / nil /,
+/ directive-override-parameters / 20, {
+/ image-digest / 3:[
+/ algorithm-id / 2 / sha256 /,
+/ digest-bytes /
+h'00112233445566778899aabbccddeeff0123456789abcdeffedcba9876543210'
+],
+/ image-size / 14: 34768,
+}
+] /,
+h'8405f614a203820258200123456789abcdeffedcba987654
+321000112233445566778899aabbccddeeff0e1a00012c22' / [
+/ condition-component-offset / 5, F6 / nil /,
+/ directive-override-parameters / 20, {
+/ image-digest / 3:[
+/ algorithm-id / 2 / sha256 /,
+/ digest-bytes /
+h'0123456789abcdeffedcba987654321000112233445566778899aabbccddeeff'
+],
+/ image-size / 14: 76834,
+}
+] /
+],
+/ condition-vendor-identifier / 1, F6 / nil /,
+/ condition-class-identifier / 2, F6 / nil /
+] /,
+} /,
+/ install / 9: h'860f8258248405f613a115781c687474703a2f2f657861
+6d706c652e636f6d2f66696c65312e62696e58248405f613a115781c687474703a2f2f
+6578616d706c652e636f6d2f66696c65322e62696e15f603f6' / [
+/ directive-try-each / 15,[
+h'8405f613a115781c687474703a2f2f6578616d706c652e636f6d
+2f66696c65312e62696e' / [
+/ condition-component-offset / 5, F6 / nil /,
+/ directive-set-parameters / 19, {
+/ uri / 21: 'http://example.com/file1.bin',
+}
+] /,
+h'8405f613a115781c687474703a2f2f6578616d706c652e636f6d
+2f66696c65322e62696e' / [
+/ condition-component-offset / 5, F6 / nil /,
+/ directive-set-parameters / 19, {
+/ uri / 21: 'http://example.com/file2.bin',
+}
+] /
+],
+/ directive-fetch / 21, F6 / nil /,
+/ condition-image-match / 3, F6 / nil /
+] /,
+/ validate / 10: h'8203f6' / [
+/ condition-image-match / 3, F6 / nil /
+] /,
+} /,
+}

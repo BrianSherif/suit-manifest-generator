@@ -8,16 +8,14 @@ from suit_tool.parse import main as parser
 
 class parser_opts:
     def __init__(self, manifest_num):
-        manifest_name = '../examples/testcases/testcase' + str(manifest_num) + '.cbor'
+        manifest_name = '../../examples/manifest_compile_oracle/oracle' + str(manifest_num) + '.cbor'
         self.json = True
         self.manifest = open(manifest_name, 'rb')
 
 
 def json_generator(num):
-    input_json = '../examples/example' + str(num) + '.json'
-    output = 'output' + str(num) + '.json'
-    os.system('suit-tool create -i ' + input_json + ' -o ' + output + ' -f json')
-    with open(output) as json_file:
+    input_json = '../../examples/manifest_parser_oracle/oracle' + str(num) + '.json'
+    with open(input_json) as json_file:
         data = json.load(json_file)
         return json.dumps(data)
 

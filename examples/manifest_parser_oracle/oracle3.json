@@ -1,0 +1,122 @@
+{
+  "manifest": {
+    "manifest-version": 1,
+    "manifest-sequence-number": 4,
+    "common": {
+      "components": [
+        [
+          "00"
+        ],
+        [
+          "01"
+        ]
+      ],
+      "common-sequence": [
+        {},
+        {
+          "command-id": "directive-override-parameters",
+          "command-arg": {
+            "vendor-id": "fa6b4a53d5ad5fdfbe9de663e4d41ffe",
+            "class-id": "1492af1425695e48bf429b2d51f2ab45",
+            "image-digest": {
+              "algorithm-id": "sha256",
+              "digest-bytes": "00112233445566778899aabbccddeeff0123456789abcdeffedcba9876543210"
+            },
+            "image-size": 34768
+          },
+          "component-id": [
+            "00"
+          ]
+        },
+        {
+          "command-id": "condition-vendor-identifier",
+          "command-arg": null,
+          "component-id": [
+            "00"
+          ]
+        },
+        {
+          "command-id": "condition-class-identifier",
+          "command-arg": null,
+          "component-id": [
+            "00"
+          ]
+        }
+      ]
+    },
+    "install": [
+      {},
+      {
+        "command-id": "directive-set-parameters",
+        "command-arg": {
+          "uri": "http://example.com/file.bin"
+        },
+        "component-id": [
+          "00"
+        ]
+      },
+      {
+        "command-id": "directive-fetch",
+        "command-arg": null,
+        "component-id": [
+          "00"
+        ]
+      },
+      {
+        "command-id": "condition-image-match",
+        "command-arg": null,
+        "component-id": [
+          "00"
+        ]
+      }
+    ],
+    "validate": [
+      {},
+      {
+        "command-id": "condition-image-match",
+        "command-arg": null,
+        "component-id": [
+          "00"
+        ]
+      }
+    ],
+    "load": [
+      {},
+      {
+        "command-id": "directive-set-parameters",
+        "command-arg": {
+          "source-component": [
+            "00"
+          ]
+        },
+        "component-id": [
+          "01"
+        ]
+      },
+      {
+        "command-id": "directive-copy",
+        "command-arg": null,
+        "component-id": [
+          "01"
+        ]
+      },
+      {
+        "command-id": "condition-image-match",
+        "command-arg": null,
+        "component-id": [
+          "01"
+        ]
+      }
+    ],
+    "run": [
+      {},
+      {
+        "command-id": "directive-run",
+        "command-arg": null,
+        "component-id": [
+          "01"
+        ]
+      }
+    ]
+  }
+}

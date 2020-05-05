@@ -2,12 +2,12 @@ import json
 import os
 import sys
 
+import cbor
 import pytest
 
 suittoolPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
 sys.path.insert(0, suittoolPath)
 from suit_tool.compile import compile_manifest
-
 
 
 class Emptyopts:
@@ -16,14 +16,14 @@ class Emptyopts:
 
 
 def example_loader(example):
-    with open('../examples/example' + str(example) + '.json') as json_file:
+    with open('../../examples/example' + str(example) + '.json') as json_file:
         data = json.load(json_file)
         return data
 
 
 def manifest_loader(example):
-    with open('../examples/Oracle/oracle' + str(example) + '.json', 'rb') as fp:
-        data = json.load(fp)
+    with open('../../examples/manifest_compile_oracle/oracle' + str(example) + '.cbor', 'rb') as fp:
+        data = cbor.load(fp)
         return data
 
 
@@ -39,10 +39,10 @@ def manifest_loader(example):
 ])
 def test_compile_manifest(input_json, expected_output, test_num):
     nm = compile_manifest(Emptyopts(), input_json)
-    with open('../examples/answer.json', 'w') as fd:
-        json.dump(nm.to_json(), fd)
-    with open('../examples/answer.json', 'r') as fp:
-        data = json.load(fp)
+    with open('../../examples/answer.cbor', 'wb') as fd:
+        fd.write(cbor.dumps(nm.to_suit(), sort_keys=True))
+        fd.close()
+    with open('../../examples/answer.cbor', 'rb') as fp:
+        data = cbor.load(fp)
     assert data == expected_output
-    # os.remove('../examples/answer.cbor')
-    # os.remove('../examples/testcases/testcase' + str(test_num) + '.cbor')
+    os.remove('../../examples/answer.cbor')

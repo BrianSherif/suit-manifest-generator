@@ -34,7 +34,6 @@ def main(options):
     if options.json:
         return json.dumps(wrapper.to_json(), indent=None)
     else:
-        print ('\n'.join(itertools.chain.from_iterable(
+        return ('\n'.join(itertools.chain.from_iterable(
             [textwrap.wrap(t, 70) for t in wrapper.to_debug('').split('\n')]
         )))
-    return 0
