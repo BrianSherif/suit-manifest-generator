@@ -33,5 +33,5 @@ class Emptyopts:
 
 
 if __name__ == "__main__":
-    manifest_name = '../examples/testcases/testcase0.cbor'
+    manifest_name = 'test.out'
     sys.exit(parser(Emptyopts(manifest_name)))

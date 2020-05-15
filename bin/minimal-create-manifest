@@ -28,7 +28,7 @@ suittoolPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
 sys.path.insert(0, suittoolPath)
 from suit_tool.compile import compile_manifest
 
-with open('../examples/example4.json') as json_file:
+with open('../examples/example1.json') as json_file:
     ex0 = json.load(json_file)
 
 class Emptyopts:

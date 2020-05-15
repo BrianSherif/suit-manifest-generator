@@ -39,4 +39,3 @@ def output_cleaner(num):
 def test_main(expected_json, test_num):
     parser_out = parser(parser_opts(test_num))
     assert parser_out == expected_json
-    output_cleaner(test_num)

@@ -207,3 +207,21 @@ suit-tool parse -m MANIFEST
 ```
 
 If a json-representation is needed, add the '-j' flag.
+
+## Testing
+
+To run test cases on the manifest generator
+```sh
+cd suit-manifest-generator/suit_tool/test_suite
+```
+Test cases are built using pytest
+
+```sh
+pytest 
+```
+
+To run specific testing
+```sh
+pytest test_filename
+```
+
